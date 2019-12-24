@@ -7,13 +7,17 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "lint": "eslint *.js **/*.js",
-    "test": "jest"
+    "test": "jest",
+    "detox-android-build": "detox build --configuration android.emu.debug",
+    "detox-android-test": "detox test --configuration android.emu.debug"
   },
   "dependencies": {
     "expo": "~36.0.0",
+    "expokit": "36.0.0",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.1.tar.gz",
+    "react-native-unimodules": "^0.7.0",
     "react-native-web": "~0.11.7"
   },
   "devDependencies": {
@@ -22,6 +26,7 @@
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "babel-preset-expo": "~8.0.0",
     "cross-fetch": "^3.0.4",
+    "detox": "^14.9.1",
     "eslint": "^6.8.0",
     "jest": "^24.9.0",
     "jest-expo": "^36.0.1",
@@ -38,5 +43,27 @@
       "./__tests__/setupJest.js"
     ]
   },
-  "private": true
+  "private": true,
+  "detox": {
+    "test-runner": "jest",
+    "configurations": {
+        "android.emu.debug": {
+            "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
+            "build":
+            "cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
+            "type": "android.emulator",
+            "device": {
+              "avdName": "Nexus_5X_API_24"
+            }
+        },
+        "android.emu.release": {
+            "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
+            "build": "cd android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release && cd ..",
+            "type": "android.emulator",
+            "device": {
+              "avdName": "Nexus_5X_API_26"
+            }
+        }
+    }
+  }
 }

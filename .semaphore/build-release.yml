@@ -28,8 +28,8 @@ blocks:
             - npm install -g detox
             - cache restore
             # build and test
-            - npm run detox-android-build-release
-            - npm run detox-android-test-release
+            - npm run detox-android-build
+            - npm run detox-android-test
             # - artifact push workflow android/app/build/outputs/apk/release/app-release.apk
 
 # promotions:
