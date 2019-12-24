@@ -34,6 +34,7 @@ blocks:
           commands:
             - cache restore
             - yarn run lint
+
   - name: Run tests
     task:
       prologue:
@@ -41,9 +42,10 @@ blocks:
           # Download source code from GitHub:
           - checkout
       jobs:
-        - name: unit and integration tests
+        - name: unit tests
           commands:
             - cache restore
+            - npm install -g yarn
             - yarn test
         # - name: e2e tests
         #   commands:
