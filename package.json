@@ -37,7 +37,8 @@
     "preset": "jest-expo",
     "automock": false,
     "testPathIgnorePatterns": [
-      "setupJest.js"
+      "setupJest.js",
+      "e2e"
     ],
     "setupFiles": [
       "./__tests__/setupJest.js"
