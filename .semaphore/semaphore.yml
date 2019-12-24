@@ -24,28 +24,26 @@ blocks:
             # Store the latest version of node modules in cache to reuse in
             # further blocks:
             - cache store
-  - name: Run linter
-    task:
-      prologue:
-        commands:
-          - checkout
-      jobs:
-        - name: run eslint
-          commands:
-            - cache restore
-            - npm run lint
-
   - name: Run tests
     task:
       prologue:
         commands:
-          # Download source code from GitHub:
           - checkout
+          - cache restore
       jobs:
+        - name: linter
+          commands:
+            - npm run lint
         - name: unit tests
           commands:
-            - cache restore
-            - npm test
+            - npm run test
+
+  # - name: Run tests
+  #   task:
+  #     prologue:
+  #       commands:
+          # Download source code from GitHub:
+          # - checkout
         # - name: e2e tests
         #   commands:
         #     # Install android emulator
