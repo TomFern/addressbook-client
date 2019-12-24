@@ -12,6 +12,7 @@ blocks:
       jobs:
         - name: yarn install and cache
           commands:
+            - npm install -g yarn
             # Get the latest version of our source code from GitHub:
             - checkout
             # Restore dependencies from cache. This command will not fail in
@@ -39,13 +40,13 @@ blocks:
     task:
       prologue:
         commands:
+          - npm install -g yarn
           # Download source code from GitHub:
           - checkout
       jobs:
         - name: unit tests
           commands:
             - cache restore
-            - npm install -g yarn
             - yarn test
         # - name: e2e tests
         #   commands:
