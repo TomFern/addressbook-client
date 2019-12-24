@@ -60,7 +60,7 @@ blocks:
 
 promotions:
 - name: Build release
-  pipeline_file: Build-release.yml
+  pipeline_file: build-release.yml
   auto_promote_on:
     - result: passed
     # branch:
