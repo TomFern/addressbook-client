@@ -6,7 +6,8 @@ exports[`jest snapshot tests renders correctly 1`] = `
     Object {
       "flex": 1,
       "fontSize": 32,
-      "marginTop": 30,
+      "marginHorizontal": 10,
+      "marginTop": 40,
     }
   }
 >

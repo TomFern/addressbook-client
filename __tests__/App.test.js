@@ -10,7 +10,7 @@ const {View, Text, Switch} = ReactNative;
 describe('jest snapshot tests', () => {
 
   beforeEach(() => {
-    fetch.resetMocks()
+    fetch.resetMocks();
   });
 
   it('renders correctly', () => {

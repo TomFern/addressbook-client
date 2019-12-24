@@ -58,10 +58,10 @@ blocks:
         #     - npm run detox-android-test-release
         #     - artifact push workflow android/app/build/outputs/apk/release/app-release.apk
 
-# promotions:
-# - name: Emulation 
-#   pipeline_file: emulate-android.yml
-#   auto_promote_on:
-#     - result: passed
+promotions:
+- name: Build release
+  pipeline_file: Build-release.yml
+  auto_promote_on:
+    - result: passed
     # branch:
     # - master
