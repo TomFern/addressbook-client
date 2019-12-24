@@ -35,7 +35,7 @@
       "setupJest.js"
     ],
     "setupFiles": [
-        "./__tests__/setupJest.js"
+      "./__tests__/setupJest.js"
     ]
   },
   "private": true
