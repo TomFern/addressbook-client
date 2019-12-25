@@ -6,8 +6,8 @@
     "web": "expo start --web",
     "lint": "eslint *.js **/*.js",
     "test": "jest",
-    "detox:android-build": "detox build --configuration android.emu.debug",
-    "detox:android-test": "detox test --configuration android.emu.debug",
+    "detox:android-build": "detox build --configuration android.emu.debug --stacktrace --info",
+    "detox:android-test": "detox test --configuration android.emu.debug --cleanup --headless",
     "postinstall": "jetify"
   },
   "dependencies": {
