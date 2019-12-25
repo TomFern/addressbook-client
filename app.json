@@ -32,8 +32,10 @@
       "publishManifestPath": "android/app/src/main/assets/shell-app-manifest.json"
     },
     "scheme": "expaab825de03d04ba98ea161b60bccfd13",
-    "entryPoint": "node_modules/expo/AppEntry.js"
-  },
-  "displayName": "Addressbook Client",
-  "name": "addressbook_client"
+    "entryPoint": "node_modules/expo/AppEntry.js",
+    "isDetached": true,
+    "detach": {
+      "androidExpoViewUrl": "https://s3.amazonaws.com/exp-exponent-view-code/android-v2.14.0-sdk36.0.0-fb8689e6-fd42-4b18-b01f-ac2ef3bc8681.tar.gz"
+    }
+  }
 }
