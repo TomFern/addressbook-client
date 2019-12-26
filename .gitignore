@@ -11,6 +11,7 @@ npm-debug.*
 Start.sh
 web-build/
 web-report/
+android/app/
 
 # macOS
 .DS_Store

@@ -6,6 +6,7 @@
     "web": "expo start --web",
     "lint": "eslint *.js **/*.js",
     "test": "jest",
+    "build:release": "cd android; ./gradlew assembleRelease",
     "postinstall": "jetify"
   },
   "dependencies": {
