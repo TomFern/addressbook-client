@@ -23,13 +23,16 @@ blocks:
             # Install android emulator
             - sdkmanager "platform-tools" "platforms;android-24" "emulator"
             - sdkmanager "system-images;android-24;default;armeabi-v7a"
-            - echo no | avdmanager create avd -n Nexus_S_API_24 -k "system-images;android-24;default;armeabi-v7a" --device "Nexus S"
+              # maybe let npm run android start emulator?
+            # - echo no | avdmanager create avd -n Nexus_S_API_24 -k "system-images;android-24;default;armeabi-v7a" --device "Nexus S"
             # Install dependencies for detox.js
-            - npm install -g detox
+            - npm install -g expo
             - cache restore
+            # - emulator -list-avds
+            - npm run android
             # build and test
-            - npm run detox-android-build-release
-            - npm run detox-android-test-release
+            # - npm run detox-android-build-release
+            # - npm run detox-android-test-release
             # - artifact push workflow android/app/build/outputs/apk/release/app-release.apk
 
 # promotions:
