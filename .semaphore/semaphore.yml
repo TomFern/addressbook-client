@@ -10,16 +10,17 @@ blocks:
   - name: Install dependencies
     task:
       jobs:
-        - name: npm install and cache
+        - name: yarn install and cache
           commands:
             # Get the latest version of our source code from GitHub:
             - checkout
+            - sudo npm install -g yarn
             # Restore dependencies from cache. This command will not fail in
-            # case of a cache miss. In case of a cache hit, npm install will
+            # case of a cache miss. In case of a cache hit, yarn install will
             # run very fast.
             # For more info on caching, see https://docs.semaphoreci.com/article/68-caching-dependencies
             - cache restore
-            - npm install
+            - yarn install
 
             # Store the latest version of node modules in cache to reuse in
             # further blocks:
@@ -30,13 +31,14 @@ blocks:
         commands:
           - checkout
           - cache restore
+          - sudo npm install -g yarn
       jobs:
         - name: linter
           commands:
-            - npm run lint
+            - yarn run lint
         - name: unit tests
           commands:
-            - npm run test
+            - yarn run test
 
   # - name: Run tests
   #   task:
@@ -51,11 +53,11 @@ blocks:
         #     - sdkmanager "system-images;android-24;default;armeabi-v7a"
         #     - echo no | avdmanager create avd -n Nexus_S_API_24 -k "system-images;android-24;default;armeabi-v7a" --device "Nexus S"
         #     # Install dependencies for detox.js
-        #     - npm install -g detox
+        #     - yarn install -g detox
         #     - cache restore
         #     # build and test
-        #     - npm run detox-android-build-release
-        #     - npm run detox-android-test-release
+        #     - yarn run detox-android-build-release
+        #     - yarn run detox-android-test-release
         #     - artifact push workflow android/app/build/outputs/apk/release/app-release.apk
 
 promotions:
