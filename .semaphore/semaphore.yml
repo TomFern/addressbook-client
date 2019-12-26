@@ -14,7 +14,7 @@ blocks:
           commands:
             # Get the latest version of our source code from GitHub:
             - checkout
-            - sudo npm install -g yarn
+            - npm install -g yarn
             # Restore dependencies from cache. This command will not fail in
             # case of a cache miss. In case of a cache hit, yarn install will
             # run very fast.
@@ -31,7 +31,7 @@ blocks:
         commands:
           - checkout
           - cache restore
-          - sudo npm install -g yarn
+          - npm install -g yarn
       jobs:
         - name: linter
           commands:
