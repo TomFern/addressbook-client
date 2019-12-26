@@ -28,11 +28,12 @@ blocks:
             - npm install -g expo
             - cache restore
             - emulator -list-avds
-            - npm run android
+            - npm run build:release
+              # - npm run android
             # build and test
             # - npm run detox-android-build-release
             # - npm run detox-android-test-release
-            # - artifact push workflow android/app/build/outputs/apk/release/app-release.apk
+            - artifact push workflow android/app/build/outputs/apk/release/app-release-unsigned.apk
 
 # promotions:
 # - name: Emulation 
