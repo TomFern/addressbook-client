@@ -25,8 +25,8 @@ blocks:
             - sdkmanager "system-images;android-24;default;armeabi-v7a"
             - echo no | avdmanager create avd -n Nexus_S_API_24 -k "system-images;android-24;default;armeabi-v7a" --device "Nexus S"
             # Install dependencies for detox.js
-            - sudo npm install -g yarn
-            - sudo yarn global add expo expo-cli
+            - npm install -g yarn
+            - yarn global add expo expo-cli
             - cache restore
             - emulator -list-avds
             - yarn run build:release
