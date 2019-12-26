@@ -32,6 +32,7 @@ blocks:
             - npm run detox:clean-and-build-cache
             - npm run detox:android-build
               #            - npm run detox:android-test-release
+            - artifact push workflow android/app/build/outputs/apk/debug/app-debug.apk
             # - artifact push workflow android/app/build/outputs/apk/release/app-release.apk
 
 # promotions:
