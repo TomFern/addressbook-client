@@ -11,6 +11,8 @@ blocks:
     task:
       prologue:
         commands:
+          - checkout
+          - cache restore
           # Download source code from GitHub:
 
       jobs:
@@ -20,8 +22,6 @@ blocks:
         #     - yarn test
         - name: e2e tests
           commands:
-            - checkout
-            - cache restore
             - npm install -g yarn
             - yarn install
             - yarn global add expo expo-cli
