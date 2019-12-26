@@ -63,6 +63,7 @@ export default class FetchAddressbook extends React.Component {
 
   }
 
+  // render view
   render(){
 
     if (this.state.isLoading){
@@ -76,6 +77,7 @@ export default class FetchAddressbook extends React.Component {
     if (this.state.nodata) {
       return (
         <View style={styles.container}>
+            <Text style={styles.personName} id="title" >Addressbook</Text>
             <Text style={styles.importantText}>No data found.</Text>
         </View>
       );
@@ -83,7 +85,7 @@ export default class FetchAddressbook extends React.Component {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.personName}>Addressbook</Text>
+            <Text style={styles.personName} id="title" >Addressbook</Text>
             <FlatList
                 data={this.state.dataSource}
                 renderItem={({ item }) => <Item lastName={item.lastName} firstName={item.firstName} />}

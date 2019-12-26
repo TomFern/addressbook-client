@@ -26,10 +26,12 @@ blocks:
             - echo no | avdmanager create avd -n Nexus_S_API_24 -k "system-images;android-24;default;armeabi-v7a" --device "Nexus S"
             # Install dependencies for detox.js
             - sudo npm install -g detox
+            - sudo npm install -g expo
             - cache restore
             # build and test
-            - npm run detox:android-build
-            - npm run detox:android-test
+            - npm run detox:clean-and-build-cache
+            - npm run detox:android-build-release
+            - npm run detox:android-test-release
             # - artifact push workflow android/app/build/outputs/apk/release/app-release.apk
 
 # promotions:
